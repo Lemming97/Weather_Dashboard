@@ -48,13 +48,16 @@ var displayEnteredCity = function () {
 
 
     });
-
+    currentCondition();
 };
 
 
 
 //current city fetch
 var currentCondition = function (city) {
-
+    console.log(city);
+    var CityInput = cityInputEL.value.trim();
     var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
+    fetch(queryURL);
+
 };
