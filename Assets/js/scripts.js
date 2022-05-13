@@ -1,11 +1,7 @@
 var APIKey = "021b34237bbcc96949e3a99359d6328e";
-// var city;
+
 
 var today = moment().format('L');
-
-
-
-
 var cityInputEL = document.querySelector('#enterCity');
 
 
