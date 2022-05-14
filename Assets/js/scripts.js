@@ -73,8 +73,8 @@ var displayForecast = function (dailyWeather) {
     console.log(dailyWeather)
     console.log(dailyWeather[0].weather);
     //dailyWeather[0].humidity
-    var  currentCityEl = document.querySelector('#fiveDay');
-    for(i=0; i < dailyWeather.length; i++) {
+    var currentCityEl = document.querySelector('#fiveDay');
+    for (i = 0; i < dailyWeather.length; i++) {
         //clouds
         var cityName = document.createElement('h2');
         cityName.textContent = dailyWeather[i].clouds;
@@ -85,13 +85,21 @@ var displayForecast = function (dailyWeather) {
         var tempHolder = dailyWeather[i].temp;
         temp.textContent = tempHolder.day;
         currentCityEl.appendChild(temp);
-        
+
         //weather obj
         var weatherHolder = dailyWeather[i].weather;
         console.log(weatherHolder[0].description);
-        console.log(`https://openweathermap.org/img/w/${weatherHolder[0].icon}.png`);
+
         //icon
-        // var iconUrl = `https://openweathermap.org/img/w/${weatherHolder[0].icon}.png`;
+        console.log(`https://openweathermap.org/img/w/${weatherHolder[0].icon}.png`);
+        var iconUrl = `https://openweathermap.org/img/w/${weatherHolder[0].icon}.png`;
+        // $("#weatherIconDay" + i).attr("src", iconUrl).attr("alt", weatherHolder[0].description);
+        var weatherIconEl = document.createElement("img");
+        weatherIconEl.setAttribute("src", iconUrl);
+        weatherIconEl.setAttribute("alt", weatherHolder[0].description);
+        weatherIconEl.classList.add('weather_icon');
+        currentCityEl.appendChild(weatherIconEl);
+
     }
 
 
@@ -145,13 +153,13 @@ var fetchCurrentCondition = function (city) {
             console.error(err);
         });
 
-        //formula
-       var  currentCityEl = document.querySelector('#current-city');
-       var cityName = document.createElement('h2');
-       cityName.textContent = city;
-       currentCityEl.appendChild(cityName);
+    //formula
+    var currentCityEl = document.querySelector('#current-city');
+    var cityName = document.createElement('h2');
+    cityName.textContent = city;
+    currentCityEl.appendChild(cityName);
 
-       
+
 
 
 };
