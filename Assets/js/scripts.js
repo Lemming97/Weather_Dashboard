@@ -1,7 +1,10 @@
 var APIKey = "021b34237bbcc96949e3a99359d6328e";
 
-var today = moment().format('L');
-$("#current-date").text("(" + today + ")");
+//current date
+const today = moment().format('L');
+var DateEL = document.querySelector('#current-date');
+DateEL.textContent = today;
+
 
 
 
@@ -65,23 +68,80 @@ var displayCurrentWeather = function (currentWeather) {
     cityDetailEL.appendChild(currentCityEl);
 
 
+    //wind speed
+    var windSpeedEl = document.createElement('p');
+    windSpeedEl.textContent = currentWeather.wind_speed;
+    currentCityEl.appendChild(windSpeedEl);
+
+    //humidity 
+    var humidityEL = document.createElement('p');
+    humidityEL.textContent = currentWeather.humidity;
+    currentCityEl.appendChild(humidityEL);
+
+    //temp as to have tempHolder because it has a few things listed in it 
+    var temp = document.createElement('p');
+    temp.textContent = currentWeather.temp;
+    currentCityEl.appendChild(temp);
+
+    //uvi index 
+    var uvIndexEL = document.createElement('p');
+    uvIndexEL.textContent = currentWeather.uvi;
+    currentCityEl.appendChild(uvIndexEL);
+
+
+    //weather obj
+    var weatherHolder = currentWeather.weather;
+    console.log(weatherHolder[0].description);
+
+    //icon
+    console.log(`https://openweathermap.org/img/w/${weatherHolder[0].icon}.png`);
+    var iconUrl = `https://openweathermap.org/img/w/${weatherHolder[0].icon}.png`;
+    // $("#weatherIconDay" + i).attr("src", iconUrl).attr("alt", weatherHolder[0].description);
+    var weatherIconEl = document.createElement("img");
+    weatherIconEl.setAttribute("src", iconUrl);
+    weatherIconEl.setAttribute("alt", weatherHolder[0].description);
+    weatherIconEl.classList.add('weather_icon');
+    currentCityEl.appendChild(weatherIconEl);
+
+
+
 
 };
 
-//display search history of cities 
+//display 5day forecast  history of cities
+//an icon representation of weather conditions, the temperature, the wind speed, and the humidity 
 var displayForecast = function (dailyWeather) {
     console.log(dailyWeather)
     console.log(dailyWeather[0].weather);
     //dailyWeather[0].humidity
     var currentCityEl = document.querySelector('#fiveDay');
     for (i = 0; i < dailyWeather.length; i++) {
-        //clouds
-        var cityName = document.createElement('h2');
-        cityName.textContent = dailyWeather[i].clouds;
-        currentCityEl.appendChild(cityName);
-        var temp = document.createElement('p');
 
-        //temp
+        //future date
+        var fiveDaysForwardEL = new moment().add(1, 'day').format('L');
+        // fiveDaysForwardEL.add(1, 'day');
+        let newDateEL = document.createElement('p');
+        newDateEL.textContent = fiveDaysForwardEL;
+        currentCityEl.appendChild(newDateEL);
+
+        // //clouds
+        // var cityName = document.createElement('h2');
+        // cityName.textContent = dailyWeather[i].clouds;
+        // currentCityEl.appendChild(cityName);
+
+
+        //wind speed
+        var windSpeedEl = document.createElement('p');
+        windSpeedEl.textContent = dailyWeather[i].wind_speed;
+        currentCityEl.appendChild(windSpeedEl);
+
+        //humidity 
+        var humidityEL = document.createElement('p');
+        humidityEL.textContent = dailyWeather[i].humidity;
+        currentCityEl.appendChild(humidityEL);
+
+        //temp as to have tempHolder because it has a few things listed in it 
+        var temp = document.createElement('p');
         var tempHolder = dailyWeather[i].temp;
         temp.textContent = tempHolder.day;
         currentCityEl.appendChild(temp);
