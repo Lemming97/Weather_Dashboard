@@ -113,21 +113,25 @@ var displayCurrentWeather = function (currentWeather) {
 var displayForecast = function (dailyWeather) {
     console.log(dailyWeather)
     console.log(dailyWeather[0].weather);
+
+    var fiveDaysForwardEL = new Date();
+
     //dailyWeather[0].humidity
     var currentCityEl = document.querySelector('#fiveDay');
     for (i = 0; i < dailyWeather.length; i++) {
 
         //future date
-        var fiveDaysForwardEL = new moment().add(1, 'day').format('L');
-        // fiveDaysForwardEL.add(1, 'day');
-        let newDateEL = document.createElement('p');
-        newDateEL.textContent = fiveDaysForwardEL;
-        currentCityEl.appendChild(newDateEL);
-
-        // //clouds
-        // var cityName = document.createElement('h2');
-        // cityName.textContent = dailyWeather[i].clouds;
-        // currentCityEl.appendChild(cityName);
+        for (let i = 0; i < 1; i++) {
+            // // fiveDaysForwardEL.setDate(fiveDaysForwardEL.getDate() + 1);
+            // var dd = String(fiveDaysForwardEL.setDate()+ 1).padStart(2, '0');
+            // var mm = String(fiveDaysForwardEL.getMonth() + 1).padStart(2, '0'); //January is 0!
+            // var yyyy = fiveDaysForwardEL.getFullYear();
+            // fiveDaysForwardEL = mm + '/' + dd + '/' + yyyy;
+            fiveDaysForwardEL.setDate(fiveDaysForwardEL.getDate() + 1);
+            let newDateEL = document.createElement('p');
+            newDateEL.textContent = fiveDaysForwardEL;
+            currentCityEl.appendChild(newDateEL);
+        }
 
 
         //wind speed
