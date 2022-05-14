@@ -1,23 +1,48 @@
+/*Body HTML Styling*/
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    /* background-color: #97A6A4; */
+}
+
 h1 {
     font-size: 50px;
     font-weight: 400;
     letter-spacing: 3px;
-    color: #0d0d0e;
+    color: #e8e8f1;
 }
 
-/* #weatherContent {
-    display: none;
-} */
+p {
+    color: #161514;
+}
 
+h1, h2, h3, h4, h5 {
+    font-family: 'Raleway', sans-serif;
+}
+
+h2, h3, h4, h5 {
+    color: #0c0c0d;
+}
+
+
+
+/*nav bar styling*/
 .navbar {
     height: 150px!important;
 }
+
+/*extra stylings*/
 
 #cityDetail,
 #uvIndexColor,
 li {
     color: #4D4F53!important;
 } 
+
+/* #weatherContent {
+    display: none;
+} */
+
 
  /* #searchResults,
 #cityDetail,
@@ -38,23 +63,8 @@ li {
     color: #e7e7ed!important;
 }
 
-p {
-    color: #161514;
-}
 
-h1, h2, h3, h4, h5 {
-    font-family: 'Raleway', sans-serif;
-}
-
-h2, h3, h4, h5 {
-    color: #0c0c0d;
-}
-
-body {
-    font-family: 'Open Sans', sans-serif;
-    /* background-color: #97A6A4; */
-}
-
+/*icons*/
 .weather_icon{
     width: 10%;
     height: auto;
