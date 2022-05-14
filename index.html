@@ -35,8 +35,8 @@
                         <div class="input-group">
                             <input class="form-control" type="text" id="enterCity"
                                 placeholder="Enter city to view weather">
-                                <button type="button" id="searchBtn"
-                                class="btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i></button>
+                            <button type="button" id="searchBtn" class="btn btn-primary"><i
+                                    class="fa-solid fa-magnifying-glass"></i></button>
                         </div>
                     </div>
                 </div>
@@ -52,10 +52,17 @@
                 </div>
             </div>
 
-            <div id="weatherContent" class="col-9 pb-4 pt-4">
+            <div class="col-9 pb-4 pt-4 weatherContent hide">
                 <div class="row pb-3 mr-2 ml-2">
                     <div id="cityDetail" class="col-12 border rounded px-3 py-3">
                         <!-- display currentCity here text with p-->
+                        <h2 id="current-city">City Information <small id="current-date"></small></h2>
+
+                        <p class="mb-0">Temperature: <span id="current-temp"></span></p>
+                        <p class="mb-0">Humidity: <span id="current-humidity"></span></p>
+                        <p class="mb-0">Wind Speed: <span id="current-wind-speed"></span></p>
+                        <p>UV index: <span id="uv-index"></span></p>
+
                     </div>
                 </div>
 
@@ -67,6 +74,7 @@
 
                 <div id="fiveDay" class="row pl-2">
                     <!-- add 5 day forecast info here -->
+                    
                 </div>
 
             </div>
