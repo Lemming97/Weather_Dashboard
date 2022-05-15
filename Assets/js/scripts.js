@@ -2,7 +2,7 @@ var APIKey = "021b34237bbcc96949e3a99359d6328e";
 
 //current date
 const today = moment().format('L');
-var DateEL = document.querySelector('#current-date');
+let DateEL = document.querySelector('#current-date');
 DateEL.textContent = today;
 
 
@@ -127,7 +127,10 @@ var displayForecast = function (dailyWeather) {
             // var mm = String(fiveDaysForwardEL.getMonth() + 1).padStart(2, '0'); //January is 0!
             // var yyyy = fiveDaysForwardEL.getFullYear();
             // fiveDaysForwardEL = mm + '/' + dd + '/' + yyyy;
+
             fiveDaysForwardEL.setDate(fiveDaysForwardEL.getDate() + 1);
+
+            // var fiveDaysForwardEL = new moment().add(1, 'day').format('L');;
             let newDateEL = document.createElement('p');
             newDateEL.textContent = fiveDaysForwardEL;
             currentCityEl.appendChild(newDateEL);
