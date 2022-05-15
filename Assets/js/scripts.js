@@ -118,13 +118,18 @@ var displayForecast = function (dailyWeather) {
 
     //dailyWeather[0].humidity
     var currentCityEl = document.querySelector('#fiveDay');
-    for (i = 0; i < dailyWeather.length; i++) {
+    for (j = 0; j < dailyWeather.length; j++) {
 
         //future date
         for (let i = 0; i < 1; i++) {
 
+<<<<<<< HEAD
             // fiveDaysForwardEL.setDate(fiveDaysForwardEL.getDate() + 1);
 
+=======
+
+            // fiveDaysForwardEL.setDate(fiveDaysForwardEL.getDate() + 1);
+>>>>>>> main
             // var fiveDaysForwardEL = new moment().add(1, 'day').format('L');
             var fiveDaysForwardEL = new moment().add(j+1, 'day').format('L');
             let newDateEL = document.createElement('p');
@@ -135,22 +140,22 @@ var displayForecast = function (dailyWeather) {
 
         //wind speed
         var windSpeedEl = document.createElement('p');
-        windSpeedEl.textContent = dailyWeather[i].wind_speed;
+        windSpeedEl.textContent = dailyWeather[j].wind_speed;
         currentCityEl.appendChild(windSpeedEl);
 
         //humidity 
         var humidityEL = document.createElement('p');
-        humidityEL.textContent = dailyWeather[i].humidity;
+        humidityEL.textContent = dailyWeather[j].humidity;
         currentCityEl.appendChild(humidityEL);
 
         //temp as to have tempHolder because it has a few things listed in it 
         var temp = document.createElement('p');
-        var tempHolder = dailyWeather[i].temp;
+        var tempHolder = dailyWeather[j].temp;
         temp.textContent = tempHolder.day;
         currentCityEl.appendChild(temp);
 
         //weather obj
-        var weatherHolder = dailyWeather[i].weather;
+        var weatherHolder = dailyWeather[j].weather;
         console.log(weatherHolder[0].description);
 
         //icon
