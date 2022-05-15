@@ -123,7 +123,6 @@ var displayForecast = function (dailyWeather) {
         //future date
         for (let i = 0; i < 1; i++) {
 
-
             // fiveDaysForwardEL.setDate(fiveDaysForwardEL.getDate() + 1);
             // var fiveDaysForwardEL = new moment().add(1, 'day').format('L');
             var fiveDaysForwardEL = new moment().add(j+1, 'day').format('L');
