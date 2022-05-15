@@ -48,7 +48,7 @@ var displaySearchHistory = function () {
 
 //display search history of cities 
 // humidity, temperature, name, date, icon, wind speed, uv index
-// humidity, temp, uv index, weather(destructure), windspeed
+// humidity, temp, uv index, weather(destructure), wind speed
 var displayCurrentWeather = function (currentWeather) {
     console.log(currentWeather);
     console.log(currentWeather.humidity);
@@ -114,17 +114,12 @@ var displayForecast = function (dailyWeather) {
     console.log(dailyWeather)
     console.log(dailyWeather[0].weather);
 
-    // var fiveDaysForwardEL = new Date();
-
-    //dailyWeather[0].humidity
     var currentCityEl = document.querySelector('#fiveDay');
     for (j = 0; j < dailyWeather.length; j++) {
 
         //future date
         for (let i = 0; i < 1; i++) {
 
-            // fiveDaysForwardEL.setDate(fiveDaysForwardEL.getDate() + 1);
-            // var fiveDaysForwardEL = new moment().add(1, 'day').format('L');
             var fiveDaysForwardEL = new moment().add(j+1, 'day').format('L');
             let newDateEL = document.createElement('p');
             newDateEL.textContent = fiveDaysForwardEL;
@@ -155,7 +150,6 @@ var displayForecast = function (dailyWeather) {
         //icon
         console.log(`https://openweathermap.org/img/w/${weatherHolder[0].icon}.png`);
         var iconUrl = `https://openweathermap.org/img/w/${weatherHolder[0].icon}.png`;
-        // $("#weatherIconDay" + i).attr("src", iconUrl).attr("alt", weatherHolder[0].description);
         var weatherIconEl = document.createElement("img");
         weatherIconEl.setAttribute("src", iconUrl);
         weatherIconEl.setAttribute("alt", weatherHolder[0].description);
