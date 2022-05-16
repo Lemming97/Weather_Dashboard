@@ -26,6 +26,7 @@ var saveCity = function (city) {
     window.localStorage.setItem("newCity", JSON.stringify(searchHistoryList));
 };
 
+
 //display search history of cities 
 var displaySearchHistory = function () {
     console.log(displaySearchHistory);
@@ -38,15 +39,36 @@ var displaySearchHistory = function () {
         city
     }) {
         // create li tag for each item
-        var liEl = document.createElement("li");
-        liEl.textContent = city;
-        olEl.appendChild(liEl);
+        let liButtonEl = document.createElement("button");
+        liButtonEl.setAttribute("class", "list-group-item");
+        liButtonEl.setAttribute("value", city);
+        liButtonEl.textContent = city;
+        olEl.appendChild(liButtonEl);
+
+        // liButtonEl.addEventListener("click", buttonClickHandler);
 
 
-    });
+    });    
+    console.log("testing clicking");
+
+
 };
 
-//display search history of cities 
+var buttonClickHandler = function(event) {
+    // get the language attribute from the clicked element
+    var currentWeather = event.target.getAttribute("value");
+    console.log("testing button event");
+  
+    if (currentWeather) {
+        displayCurrentWeather(currentWeather);
+  
+      // clear old content
+    //   repoContainerEl.textContent = "";
+    }
+  };
+  
+
+//display current weather
 // humidity, temperature, name, date, icon, wind speed, uv index
 // humidity, temp, uv index, weather(destructure), wind speed
 var displayCurrentWeather = function (currentWeather) {
@@ -161,26 +183,7 @@ var displayForecast = function (dailyWeather) {
 
 };
 
-//display search history of cities 
-var displaySearchHistory = function () {
-    console.log(displaySearchHistory);
 
-    // display on page
-    var olEl = document.getElementById("searchHistory");
-    olEl.textContent = "";
-
-    searchHistoryList.forEach(function ({
-        city
-    }) {
-        // create li tag for each item
-        var liButtonEl = document.createElement("button");
-        liButtonEl.setAttribute("class", "recent_city");
-        liButtonEl.textContent = city;
-        olEl.appendChild(liButtonEl);
-
-
-    });
-};
 
 //current city fetch
 var fetchCurrentCondition = function (city) {
