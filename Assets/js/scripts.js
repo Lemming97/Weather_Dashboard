@@ -173,9 +173,10 @@ var displaySearchHistory = function () {
         city
     }) {
         // create li tag for each item
-        var liEl = document.createElement("li");
-        liEl.textContent = city;
-        olEl.appendChild(liEl);
+        var liButtonEl = document.createElement("button");
+        liButtonEl.setAttribute("class", "recent_city");
+        liButtonEl.textContent = city;
+        olEl.appendChild(liButtonEl);
 
 
     });
