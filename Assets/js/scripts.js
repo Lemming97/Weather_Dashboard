@@ -8,9 +8,10 @@ DateEL.textContent = today;
 var cityInputEL = document.querySelector("#enterCity");
 var saveCityButton = document.querySelector("#searchBtn");
 var searchHistoryEl = document.getElementById("searchHistory");
+var cityDetailEL = document.querySelector('#cityDetail');
 
 var searchHistoryList =
-    JSON.parse(window.localStorage.getItem("searchHistoryList")) || [];
+    JSON.parse(window.localStorage.getItem("newCity")) || [];
 
 //save city object
 var saveCity = function (city) {
@@ -46,28 +47,12 @@ var displaySearchHistory = function () {
     });
 };
 
-// document.getElementById("searchHistory").onclick = (event) => {
-//     event.preventDefault();
-//     fetchCurrentCondition(event.target.dataset.id);
-// };
-
+//user should be able to click on users from search history
 searchHistoryEl.addEventListener('click', function (event) {
     event.preventDefault();
     fetchCurrentCondition(event.target.dataset.id);
+    // cityDetailEL.textContent = "";
 });
-
-
-
-//load saved cities
-var loadSavedCity = function () {
-    console.log('loadSavedCity');
-    searchHistoryList =
-        JSON.parse(window.localStorage.getItem("searchHistoryList")) || [];
-
-};
-
-
-
 
 //display current weather
 // humidity, temperature, name, date, icon, wind speed, uv index
@@ -82,10 +67,8 @@ var displayCurrentWeather = function (currentWeather) {
     var weather = currentWeather.weather;
     console.log(weather[0].description);
 
-    // var weatherContentEl = document.querySelector('#weatherContent')
-    var cityDetailEL = document.querySelector('#cityDetail');
-    // cityDetailEL.textContent = "";
-    // weatherContentEl.classList.remove("hide");
+
+    // var cityDetailEL = document.querySelector('#cityDetail');
     var currentCityEl = document.createElement('p');
     currentCityEl.textContent = currentWeather.name;
     cityDetailEL.appendChild(currentCityEl);
@@ -237,5 +220,5 @@ saveCityButton.addEventListener("click", function () {
     fetchCurrentCondition(cityInput);
 });
 
-
-loadSavedCity();
+displaySearchHistory();
+// loadSavedCity();
