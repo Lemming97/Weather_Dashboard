@@ -111,7 +111,7 @@ var displayForecast = function (dailyWeather) {
     console.log(dailyWeather)
     console.log(dailyWeather[0].weather);
 
-    var forecastEl = document.querySelector('#forecast_card');
+    var currentCityEl = document.querySelector('#fiveDay');
 
     for (j = 0; j < dailyWeather.length; j++) {
         //future date
@@ -119,49 +119,43 @@ var displayForecast = function (dailyWeather) {
 
             var fiveDaysForwardEL = new moment().add(j + 1, 'day').format('L');
             let newDateEL = document.createElement('p');
-            // newDateEL = document.querySelector('#card_date');
+            newDateEL.querySelector('.card_date');
             newDateEL.textContent = fiveDaysForwardEL;
-            forecastEl.appendChild(newDateEL);
+            currentCityEl.appendChild(newDateEL);
         }
 
 
         //wind speed
         var windSpeedEl = document.createElement('p');
-        // windSpeedEl = document.querySelector('#card_speed');
         windSpeedEl.textContent = "Wind Speed: " + dailyWeather[j].wind_speed + " MPH";
-        forecastEl.appendChild(windSpeedEl);
+        currentCityEl.appendChild(windSpeedEl);
 
         //humidity 
         var humidityEL = document.createElement('p');
-        // humidityEL = document.querySelector('#card_humidity');
         humidityEL.textContent = "Humidity: " + dailyWeather[j].humidity + " %";
-        forecastEl.appendChild(humidityEL);
+        currentCityEl.appendChild(humidityEL);
 
         //temp as to have tempHolder because it has a few things listed in it 
         var temp = document.createElement('p');
-        // temp = document.querySelector('#card_temp');
         var tempHolder = dailyWeather[j].temp;
         temp.textContent = "Temperature: " + tempHolder.day + " F";
-        forecastEl.appendChild(temp);
+        currentCityEl.appendChild(temp);
 
         //weather obj
         var weatherHolder = dailyWeather[j].weather;
         console.log(weatherHolder[0].description);
 
         //icon
-
         console.log(`https://openweathermap.org/img/w/${weatherHolder[0].icon}.png`);
         var iconUrl = `https://openweathermap.org/img/w/${weatherHolder[0].icon}.png`;
         var weatherIconEl = document.createElement("img");
-        // weatherIconEl = document.querySelector('#card_weather_icon');
         weatherIconEl.setAttribute("src", iconUrl);
         weatherIconEl.setAttribute("alt", weatherHolder[0].description);
         weatherIconEl.classList.add('weather_icon');
-        forecastEl.appendChild(weatherIconEl);
+        currentCityEl.appendChild(weatherIconEl);
 
     }
 
- 
 
 };
 
