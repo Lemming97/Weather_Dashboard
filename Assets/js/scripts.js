@@ -10,7 +10,6 @@ var saveCityButton = document.querySelector("#searchBtn");
 var searchHistoryEl = document.getElementById("searchHistory");
 var currentCityDetailEL = document.querySelector('#cityDetail');
 
-
 var searchHistoryList =
     JSON.parse(window.localStorage.getItem("newCity")) || [];
 
@@ -58,6 +57,7 @@ searchHistoryEl.addEventListener('click', function (event) {
 // humidity, temperature, name, date, icon, wind speed, uv index
 var displayCurrentWeather = function (currentWeather) {
     console.log(currentWeather);
+
 
     var weather = currentWeather.weather;
     console.log(weather[0].description);
@@ -119,7 +119,6 @@ var displayForecast = function (dailyWeather) {
 
             var fiveDaysForwardEL = new moment().add(j + 1, 'day').format('L');
             let newDateEL = document.createElement('p');
-            newDateEL.querySelector('.card_date');
             newDateEL.textContent = fiveDaysForwardEL;
             currentCityEl.appendChild(newDateEL);
         }
