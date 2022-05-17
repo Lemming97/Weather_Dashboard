@@ -59,10 +59,6 @@ searchHistoryEl.addEventListener('click', function (event) {
 // humidity, temp, uv index, weather(destructure), wind speed
 var displayCurrentWeather = function (currentWeather) {
     console.log(currentWeather);
-    console.log(currentWeather.humidity);
-    console.log(currentWeather.uvi);
-    console.log(currentWeather.temp);
-    console.log(currentWeather.wind_speed);
 
     var weather = currentWeather.weather;
     console.log(weather[0].description);
@@ -76,22 +72,22 @@ var displayCurrentWeather = function (currentWeather) {
 
     //wind speed
     var windSpeedEl = document.createElement('p');
-    windSpeedEl.textContent = currentWeather.wind_speed;
+    windSpeedEl.textContent = "Wind Speed: " + currentWeather.wind_speed + " MPH";
     currentCityEl.appendChild(windSpeedEl);
 
     //humidity 
     var humidityEL = document.createElement('p');
-    humidityEL.textContent = currentWeather.humidity;
+    humidityEL.textContent = "Humidity: " + currentWeather.humidity + " %";
     currentCityEl.appendChild(humidityEL);
 
     //temp as to have tempHolder because it has a few things listed in it 
     var temp = document.createElement('p');
-    temp.textContent = currentWeather.temp;
+    temp.textContent = "Temperature: " + currentWeather.temp + " F";
     currentCityEl.appendChild(temp);
 
     //uvi index 
     var uvIndexEL = document.createElement('p');
-    uvIndexEL.textContent = currentWeather.uvi;
+    uvIndexEL.textContent = "UV index: " + currentWeather.uvi;
     currentCityEl.appendChild(uvIndexEL);
 
 
@@ -134,18 +130,18 @@ var displayForecast = function (dailyWeather) {
 
         //wind speed
         var windSpeedEl = document.createElement('p');
-        windSpeedEl.textContent = dailyWeather[j].wind_speed;
+        windSpeedEl.textContent = "Wind Speed: " + dailyWeather[j].wind_speed + " MPH";
         currentCityEl.appendChild(windSpeedEl);
 
         //humidity 
         var humidityEL = document.createElement('p');
-        humidityEL.textContent = dailyWeather[j].humidity;
+        humidityEL.textContent = "Humidity: " + dailyWeather[j].humidity + " %";
         currentCityEl.appendChild(humidityEL);
 
         //temp as to have tempHolder because it has a few things listed in it 
         var temp = document.createElement('p');
         var tempHolder = dailyWeather[j].temp;
-        temp.textContent = tempHolder.day;
+        temp.textContent ="Temperature: " +  tempHolder.day + " F";
         currentCityEl.appendChild(temp);
 
         //weather obj
