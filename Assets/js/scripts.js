@@ -7,6 +7,7 @@ DateEL.textContent = today;
 
 var cityInputEL = document.querySelector("#enterCity");
 var saveCityButton = document.querySelector("#searchBtn");
+var searchHistoryEl = document.getElementById("searchHistory");
 
 var searchHistoryList =
     JSON.parse(window.localStorage.getItem("searchHistoryList")) || [];
@@ -18,10 +19,9 @@ var saveCity = function (city) {
     var newCity = {
         city,
     };
-
-
     searchHistoryList.push(newCity);
     window.localStorage.setItem("newCity", JSON.stringify(searchHistoryList));
+
 };
 
 
@@ -32,8 +32,7 @@ var displaySearchHistory = function () {
     console.log('displaySearchHistory');
 
     // display on page
-    var searchHistoryEl = document.getElementById("searchHistory");
-    searchHistory.textContent = "";
+    searchHistoryEl.textContent = "";
     searchHistoryList.forEach(function ({
         city
     }) {
@@ -42,26 +41,29 @@ var displaySearchHistory = function () {
         cityButtonEl.setAttribute("class", "list-group-item");
         cityButtonEl.setAttribute("data-id", `${city}`);
         cityButtonEl.textContent = city;
-        searchHistory.appendChild(cityButtonEl);
+        searchHistoryEl.appendChild(cityButtonEl);
 
     });
 };
 
-document.getElementById("searchHistory").onclick = (event) => {
+// document.getElementById("searchHistory").onclick = (event) => {
+//     event.preventDefault();
+//     fetchCurrentCondition(event.target.dataset.id);
+// };
+
+searchHistoryEl.addEventListener('click', function (event) {
     event.preventDefault();
     fetchCurrentCondition(event.target.dataset.id);
-};
+});
+
 
 
 //load saved cities
 var loadSavedCity = function () {
-    console.log(loadSavedCity);
+    console.log('loadSavedCity');
+    searchHistoryList =
+        JSON.parse(window.localStorage.getItem("searchHistoryList")) || [];
 
-    if (localStorage.getItem("searchHistoryList")) {
-        searchHistoryList =
-            JSON.parse(window.localStorage.getItem("searchHistoryList")) || [];
-
-    }
 };
 
 
@@ -235,5 +237,5 @@ saveCityButton.addEventListener("click", function () {
     fetchCurrentCondition(cityInput);
 });
 
-displaySearchHistory();
+
 loadSavedCity();
