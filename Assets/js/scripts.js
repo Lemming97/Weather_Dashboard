@@ -118,7 +118,7 @@ var displayForecast = function (dailyWeather) {
         for (let i = 0; i < 1; i++) {
 
             var fiveDaysForwardEL = new moment().add(j + 1, 'day').format('L');
-            let newDateEL = document.createElement('p');
+            var newDateEL = document.createElement('p');
             // newDateEL = document.querySelector('#card_date');
             newDateEL.textContent = fiveDaysForwardEL;
             forecastEl.appendChild(newDateEL);
