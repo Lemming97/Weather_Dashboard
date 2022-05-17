@@ -161,8 +161,7 @@ var displayForecast = function (dailyWeather) {
 
     }
 
-    // var forecastCard = textContent = '<div id="forecast_card" class="card_body"><h5 id="card_date">Date ' + fiveDaysForwardEL + '</h5><i id="card_weather_icon">' + weatherIconEl + '</i> <p id="card_temp">Temp:' + temp + '</p><p id="card_speed">Wind Speed:' + windSpeedEl + '</p><p id="card_humidity">Humidity: ' + humidityEL + '</p></div>';
-    // forecastEl.appendChild(forecastCard);
+ 
 
 };
 
