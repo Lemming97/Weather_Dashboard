@@ -111,7 +111,7 @@ var displayForecast = function (dailyWeather) {
     console.log(dailyWeather)
     console.log(dailyWeather[0].weather);
 
-    var currentCityEl = document.querySelector('#fiveDay');
+    var fiveDayCardEl = document.querySelector('#forecast_card');
 
     for (j = 0; j < dailyWeather.length; j++) {
         //future date
@@ -119,25 +119,25 @@ var displayForecast = function (dailyWeather) {
             var fiveDaysForwardEL = new moment().add(j + 1, 'day').format('L');
             let newDateEL = document.createElement('p');
             newDateEL.textContent = fiveDaysForwardEL;
-            currentCityEl.appendChild(newDateEL);
+            fiveDayCardEl.appendChild(newDateEL);
         }
 
 
         //wind speed
         var windSpeedEl = document.createElement('p');
         windSpeedEl.textContent = "Wind Speed: " + dailyWeather[j].wind_speed + " MPH";
-        currentCityEl.appendChild(windSpeedEl);
+        fiveDayCardEl.appendChild(windSpeedEl);
 
         //humidity 
         var humidityEL = document.createElement('p');
         humidityEL.textContent = "Humidity: " + dailyWeather[j].humidity + " %";
-        currentCityEl.appendChild(humidityEL);
+        fiveDayCardEl.appendChild(humidityEL);
 
         //temp as to have tempHolder because it has a few things listed in it 
         var temp = document.createElement('p');
         var tempHolder = dailyWeather[j].temp;
         temp.textContent = "Temperature: " + tempHolder.day + " F";
-        currentCityEl.appendChild(temp);
+        fiveDayCardEl.appendChild(temp);
 
         //weather obj
         var weatherHolder = dailyWeather[j].weather;
@@ -150,7 +150,7 @@ var displayForecast = function (dailyWeather) {
         weatherIconEl.setAttribute("src", iconUrl);
         weatherIconEl.setAttribute("alt", weatherHolder[0].description);
         weatherIconEl.classList.add('weather_icon');
-        currentCityEl.appendChild(weatherIconEl);
+        fiveDayCardEl.appendChild(weatherIconEl);
 
     }
 
