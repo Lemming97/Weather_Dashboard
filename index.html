@@ -56,8 +56,8 @@
                 <div class="row pb-3 mr-2 ml-2">
                     <div id="cityDetail" class="col-12 border rounded px-3 py-3">
                         <!-- display currentCity here text with p-->
-                        <h2 id="current-city">City Information <small id="current-date"></small> <img
-                                class="weather-icon" id="weatherIconDay1" src="" alt="">
+                        <h2 id="current-city"> <small id="current-date"></small> <img class="weather-icon"
+                                id="weatherIconDay1" src="" alt="">
                             </img></h2>
                         <!--                        
                         <p class="mb-0">Temperature: <span id="current-temp"></span></p>
@@ -80,11 +80,12 @@
                     <!-- add 5 day forecast info here -->
                     <div class="col-2">
                         <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Date</h5>
-                                <i class="fa fa-sun"></i>
-                                <p class="card-text">Temp: </p>
-                                <p class="card-text">Humidity: </p>
+                            <div id="forecast_card" class="card_body">
+                                <h5 id="card_date">Date</h5>
+                                <i id="card_weather_icon"></i>
+                                <p id="card_temp">Temp: </p>
+                                <p id="card_speed">Wind Speed: </p>
+                                <p id="card_humidity">Humidity: </p>
                             </div>
                         </div>
 
@@ -94,14 +95,6 @@
             </div>
 
         </div>
-
-        <!-- <dialog open>
-        <p>Greetings, one and all!</p>
-        <form method="dialog">
-          <button>OK</button>
-        </form>
-      </dialog> -->
-
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
