@@ -141,7 +141,7 @@ var displayForecast = function (dailyWeather) {
         //temp as to have tempHolder because it has a few things listed in it 
         var temp = document.createElement('p');
         var tempHolder = dailyWeather[j].temp;
-        temp.textContent ="Temperature: " +  tempHolder.day + " F";
+        temp.textContent = "Temperature: " + tempHolder.day + " F";
         currentCityEl.appendChild(temp);
 
         //weather obj
@@ -168,7 +168,7 @@ var displayForecast = function (dailyWeather) {
 //current city fetch
 var fetchCurrentCondition = function (city) {
     console.log(city);
-    var currentWeatherQueryURL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}`;
+    var currentWeatherQueryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${APIKey}`;
     fetch(currentWeatherQueryURL)
         .then(function (res) {
             return res.json()
@@ -178,7 +178,7 @@ var fetchCurrentCondition = function (city) {
         })
         .then(function (coord) {
             console.log(coord)
-            var oneCallQueryURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coord.lat}&lon=${coord.lon}&appid=${APIKey}`;
+            var oneCallQueryURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coord.lat}&lon=${coord.lon}&units=imperial&appid=${APIKey}`;
             return fetch(oneCallQueryURL);
         })
         .then(function (res) {
@@ -194,8 +194,10 @@ var fetchCurrentCondition = function (city) {
 
     //formula
     var currentCityEl = document.querySelector('#current-city');
-    // currentCityEl.textContent = "";
+    // currentCityEl.textContent = "" + today;
     var cityName = document.createElement('h2');
+    cityName.textContent = "";
+    cityName.setAttribute("class", "city_name");
     cityName.textContent = city;
     currentCityEl.appendChild(cityName);
 
@@ -217,4 +219,3 @@ saveCityButton.addEventListener("click", function () {
 });
 
 displaySearchHistory();
-// loadSavedCity();
