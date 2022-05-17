@@ -1,15 +1,12 @@
 var APIKey = "021b34237bbcc96949e3a99359d6328e";
 
 //current date
-const today = moment().format('L');
-let DateEL = document.querySelector('#current-date');
+const today = moment().format("L");
+let DateEL = document.querySelector("#current-date");
 DateEL.textContent = today;
 
-
-
-
-var cityInputEL = document.querySelector('#enterCity');
-var saveCityButton = document.querySelector('#searchBtn');
+var cityInputEL = document.querySelector("#enterCity");
+var saveCityButton = document.querySelector("#searchBtn");
 
 var searchHistoryList =
     JSON.parse(window.localStorage.getItem("searchHistoryList")) || [];
@@ -17,56 +14,58 @@ var searchHistoryList =
 //save city object
 var saveCity = function (city) {
     //get value from input box
-    console.log('saveCity function');
+    console.log("saveCity function");
     var newCity = {
         city,
     };
+
 
     searchHistoryList.push(newCity);
     window.localStorage.setItem("newCity", JSON.stringify(searchHistoryList));
 };
 
 
+
+
 //display search history of cities 
 var displaySearchHistory = function () {
-    console.log(displaySearchHistory);
+    console.log('displaySearchHistory');
 
     // display on page
-    var olEl = document.getElementById("searchHistory");
-    olEl.textContent = "";
-
+    var searchHistoryEl = document.getElementById("searchHistory");
+    searchHistory.textContent = "";
     searchHistoryList.forEach(function ({
         city
     }) {
         // create li tag for each item
-        let liButtonEl = document.createElement("button");
-        liButtonEl.setAttribute("class", "list-group-item");
-        liButtonEl.setAttribute("value", city);
-        liButtonEl.textContent = city;
-        olEl.appendChild(liButtonEl);
+        let cityButtonEl = document.createElement("button");
+        cityButtonEl.setAttribute("class", "list-group-item");
+        cityButtonEl.setAttribute("data-id", `${city}`);
+        cityButtonEl.textContent = city;
+        searchHistory.appendChild(cityButtonEl);
 
-        // liButtonEl.addEventListener("click", buttonClickHandler);
-
-
-    });    
-    console.log("testing clicking");
-
-
+    });
 };
 
-var buttonClickHandler = function(event) {
-    // get the language attribute from the clicked element
-    var currentWeather = event.target.getAttribute("value");
-    console.log("testing button event");
-  
-    if (currentWeather) {
-        displayCurrentWeather(currentWeather);
-  
-      // clear old content
-    //   repoContainerEl.textContent = "";
+document.getElementById("searchHistory").onclick = (event) => {
+    event.preventDefault();
+    fetchCurrentCondition(event.target.dataset.id);
+};
+
+
+//load saved cities
+var loadSavedCity = function () {
+    console.log(loadSavedCity);
+
+    if (localStorage.getItem("searchHistoryList")) {
+        searchHistoryList =
+            JSON.parse(window.localStorage.getItem("searchHistoryList")) || [];
+
     }
-  };
-  
+};
+
+
+
 
 //display current weather
 // humidity, temperature, name, date, icon, wind speed, uv index
@@ -141,7 +140,7 @@ var displayForecast = function (dailyWeather) {
         //future date
         for (let i = 0; i < 1; i++) {
 
-            var fiveDaysForwardEL = new moment().add(j+1, 'day').format('L');
+            var fiveDaysForwardEL = new moment().add(j + 1, 'day').format('L');
             let newDateEL = document.createElement('p');
             newDateEL.textContent = fiveDaysForwardEL;
             currentCityEl.appendChild(newDateEL);
@@ -214,6 +213,7 @@ var fetchCurrentCondition = function (city) {
 
     //formula
     var currentCityEl = document.querySelector('#current-city');
+    // currentCityEl.textContent = "";
     var cityName = document.createElement('h2');
     cityName.textContent = city;
     currentCityEl.appendChild(cityName);
@@ -234,3 +234,6 @@ saveCityButton.addEventListener("click", function () {
     displaySearchHistory();
     fetchCurrentCondition(cityInput);
 });
+
+displaySearchHistory();
+loadSavedCity();
