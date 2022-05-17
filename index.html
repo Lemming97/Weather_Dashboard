@@ -52,18 +52,19 @@
                 </div>
             </div>
 
-            <div id"weatherContent" class="col-9 pb-4 pt-4 ">
+            <div id="weatherContent" class="col-9 pb-4 pt-4 ">
                 <div class="row pb-3 mr-2 ml-2">
                     <div id="cityDetail" class="col-12 border rounded px-3 py-3">
                         <!-- display currentCity here text with p-->
-                        <h2 id="current-city">City Information <small id="current-date"></small> <img class="weather-icon" id="weatherIconDay1" src="" alt="">
-                        </img></h2>
-                       
+                        <h2 id="current-city">City Information <small id="current-date"></small> <img
+                                class="weather-icon" id="weatherIconDay1" src="" alt="">
+                            </img></h2>
+                        <!--                        
                         <p class="mb-0">Temperature: <span id="current-temp"></span></p>
                         <p class="mb-0">Humidity: <span id="current-humidity"></span></p>
-                        <p class="mb-0">Wind Speed: <span id="current-wind-speed"></span></p>
+                        <p class="mb-0">Wind Speed: <span id="current-wind-speed"></span></p> -->
                         <p class="mb-0"><span id="current-weather-image"></span></p>
-                        <p>UV index: <span id="uv-index"></span></p>
+                        <!-- <p>UV index: <span id="uv-index"></span></p> -->
 
                     </div>
                 </div>
@@ -71,21 +72,30 @@
                 <div class="row pb-2 pt-1">
                     <div class="col-12 ml-2">
                         <h3>5-Day Forecast:</h3>
-                      
+
                     </div>
                 </div>
 
                 <div id="fiveDay" class="row pl-2">
                     <!-- add 5 day forecast info here -->
+                    <div class="col-2">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Date</h5>
+                                <i class="fa fa-sun"></i>
+                                <p class="card-text">Temp: </p>
+                                <p class="card-text">Humidity: </p>
+                            </div>
+                        </div>
+
+                    </div>
 
                 </div>
-
             </div>
+
         </div>
 
-    </div>
-
-    <!-- <dialog open>
+        <!-- <dialog open>
         <p>Greetings, one and all!</p>
         <form method="dialog">
           <button>OK</button>
@@ -93,10 +103,10 @@
       </dialog> -->
 
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="./Assets/js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        <script src="./Assets/js/scripts.js"></script>
 </body>
 
 </html>
