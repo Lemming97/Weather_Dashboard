@@ -8,7 +8,8 @@ DateEL.textContent = today;
 var cityInputEL = document.querySelector("#enterCity");
 var saveCityButton = document.querySelector("#searchBtn");
 var searchHistoryEl = document.getElementById("searchHistory");
-var cityDetailEL = document.querySelector('#cityDetail');
+var currentCityDetailEL = document.querySelector('#cityDetail');
+
 
 var searchHistoryList =
     JSON.parse(window.localStorage.getItem("newCity")) || [];
@@ -51,12 +52,10 @@ var displaySearchHistory = function () {
 searchHistoryEl.addEventListener('click', function (event) {
     event.preventDefault();
     fetchCurrentCondition(event.target.dataset.id);
-    // cityDetailEL.textContent = "";
 });
 
 //display current weather
 // humidity, temperature, name, date, icon, wind speed, uv index
-// humidity, temp, uv index, weather(destructure), wind speed
 var displayCurrentWeather = function (currentWeather) {
     console.log(currentWeather);
 
@@ -64,10 +63,9 @@ var displayCurrentWeather = function (currentWeather) {
     console.log(weather[0].description);
 
 
-    // var cityDetailEL = document.querySelector('#cityDetail');
     var currentCityEl = document.createElement('p');
     currentCityEl.textContent = currentWeather.name;
-    cityDetailEL.appendChild(currentCityEl);
+    currentCityDetailEL.appendChild(currentCityEl);
 
 
     //wind speed
@@ -105,8 +103,6 @@ var displayCurrentWeather = function (currentWeather) {
     currentCityEl.appendChild(weatherIconEl);
 
 
-
-
 };
 
 //display 5day forecast  history of cities
@@ -115,51 +111,58 @@ var displayForecast = function (dailyWeather) {
     console.log(dailyWeather)
     console.log(dailyWeather[0].weather);
 
-    var currentCityEl = document.querySelector('#fiveDay');
-    for (j = 0; j < dailyWeather.length; j++) {
+    var forecastEl = document.querySelector('#forecast_card');
 
+    for (j = 0; j < dailyWeather.length; j++) {
         //future date
         for (let i = 0; i < 1; i++) {
 
             var fiveDaysForwardEL = new moment().add(j + 1, 'day').format('L');
             let newDateEL = document.createElement('p');
+            // newDateEL = document.querySelector('#card_date');
             newDateEL.textContent = fiveDaysForwardEL;
-            currentCityEl.appendChild(newDateEL);
+            forecastEl.appendChild(newDateEL);
         }
 
 
         //wind speed
         var windSpeedEl = document.createElement('p');
+        // windSpeedEl = document.querySelector('#card_speed');
         windSpeedEl.textContent = "Wind Speed: " + dailyWeather[j].wind_speed + " MPH";
-        currentCityEl.appendChild(windSpeedEl);
+        forecastEl.appendChild(windSpeedEl);
 
         //humidity 
         var humidityEL = document.createElement('p');
+        // humidityEL = document.querySelector('#card_humidity');
         humidityEL.textContent = "Humidity: " + dailyWeather[j].humidity + " %";
-        currentCityEl.appendChild(humidityEL);
+        forecastEl.appendChild(humidityEL);
 
         //temp as to have tempHolder because it has a few things listed in it 
         var temp = document.createElement('p');
+        // temp = document.querySelector('#card_temp');
         var tempHolder = dailyWeather[j].temp;
         temp.textContent = "Temperature: " + tempHolder.day + " F";
-        currentCityEl.appendChild(temp);
+        forecastEl.appendChild(temp);
 
         //weather obj
         var weatherHolder = dailyWeather[j].weather;
         console.log(weatherHolder[0].description);
 
         //icon
+
         console.log(`https://openweathermap.org/img/w/${weatherHolder[0].icon}.png`);
         var iconUrl = `https://openweathermap.org/img/w/${weatherHolder[0].icon}.png`;
         var weatherIconEl = document.createElement("img");
+        // weatherIconEl = document.querySelector('#card_weather_icon');
         weatherIconEl.setAttribute("src", iconUrl);
         weatherIconEl.setAttribute("alt", weatherHolder[0].description);
         weatherIconEl.classList.add('weather_icon');
-        currentCityEl.appendChild(weatherIconEl);
+        forecastEl.appendChild(weatherIconEl);
 
     }
 
-
+    var forecastCard = textContent = '<div id="forecast_card" class="card_body"><h5 id="card_date">Date ' + fiveDaysForwardEL + '</h5><i id="card_weather_icon">' + weatherIconEl + '</i> <p id="card_temp">Temp:' + temp + '</p><p id="card_speed">Wind Speed:' + windSpeedEl + '</p><p id="card_humidity">Humidity: ' + humidityEL + '</p></div>';
+    forecastEl.appendChild(forecastCard);
 
 };
 
