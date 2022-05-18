@@ -58,6 +58,7 @@ searchHistoryEl.addEventListener('click', function (event) {
 var displayCurrentWeather = function (currentWeather) {
     console.log(currentWeather);
     // currentCityDetailEL.textContent = '';
+    //target what you're appending, moving and when do you do that work? After the fetch 
 
     var weather = currentWeather.weather;
     console.log(weather[0].description);
@@ -116,29 +117,29 @@ var displayForecast = function (dailyWeather) {
 
     for (j = 0; j < dailyWeather.length; j++) {
         //future date
-        for (let i = 0; i < 1; i++) {
-            var fiveDaysForwardEL = new moment().add(j + 1, 'day').format('L');
-            let newDateEL = document.createElement('p');
-            newDateEL.textContent = fiveDaysForwardEL;
-            fiveDayCardEl.appendChild(newDateEL);
-        }
+        // for (let i = 0; i < 1; i++) {
+        var fiveDaysForwardEL = new moment().add(j + 1, 'day').format('L');
+        let newDateEL = document.createElement('p');
+        newDateEL.textContent = fiveDaysForwardEL;
+        // fiveDayCardEl.appendChild(newDateEL);
+        // }
 
 
         //wind speed
         var windSpeedEl = document.createElement('p');
         windSpeedEl.textContent = "Wind Speed: " + dailyWeather[j].wind_speed + " MPH";
-        fiveDayCardEl.appendChild(windSpeedEl);
+        // fiveDayCardEl.appendChild(windSpeedEl);
 
         //humidity 
         var humidityEL = document.createElement('p');
         humidityEL.textContent = "Humidity: " + dailyWeather[j].humidity + " %";
-        fiveDayCardEl.appendChild(humidityEL);
+        // fiveDayCardEl.appendChild(humidityEL);
 
         //temp as to have tempHolder because it has a few things listed in it 
         var temp = document.createElement('p');
         var tempHolder = dailyWeather[j].temp;
         temp.textContent = "Temperature: " + tempHolder.day + " F";
-        fiveDayCardEl.appendChild(temp);
+        // fiveDayCardEl.appendChild(temp);
 
         //weather obj
         var weatherHolder = dailyWeather[j].weather;
@@ -151,12 +152,33 @@ var displayForecast = function (dailyWeather) {
         weatherIconEl.setAttribute("src", iconUrl);
         weatherIconEl.setAttribute("alt", weatherHolder[0].description);
         weatherIconEl.classList.add('weather_icon');
-        fiveDayCardEl.appendChild(weatherIconEl);
+        // fiveDayCardEl.appendChild(weatherIconEl);
+
+
+        //this will eventually be it's own function 
+
+        //create a div
+        var newCard = createWeatherDay(newDateEL, windSpeedEl, weatherIconEl, humidityEL, temp);
+        fiveDayCardEl.appendChild(newCard);
 
     }
 
 
 };
+
+function createWeatherDay(dateEl, windSpeedEl, weatherIconEl, humidityEL, tempEl) {
+    var cardDay = document.createElement('div');
+    cardDay.setAttribute('class', 'card_body');
+
+
+    // append to this day's info to new div 
+    cardDay.append(dateEl, windSpeedEl, weatherIconEl, humidityEL, tempEl);
+
+    //append this card to where it needs to go
+    // fiveDayCardEl.appendChild(cardDay);
+    return cardDay;
+};
+
 
 
 
