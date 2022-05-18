@@ -57,7 +57,7 @@ searchHistoryEl.addEventListener('click', function (event) {
 // humidity, temperature, name, date, icon, wind speed, uv index
 var displayCurrentWeather = function (currentWeather) {
     console.log(currentWeather);
-
+    // currentCityDetailEL.textContent = '';
 
     var weather = currentWeather.weather;
     console.log(weather[0].description);
@@ -112,6 +112,7 @@ var displayForecast = function (dailyWeather) {
     console.log(dailyWeather[0].weather);
 
     var fiveDayCardEl = document.querySelector('#forecast_card');
+    fiveDayCardEl.innerHTML = '';
 
     for (j = 0; j < dailyWeather.length; j++) {
         //future date
