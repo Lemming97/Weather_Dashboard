@@ -100,7 +100,7 @@ var displayCurrentWeather = function (currentWeather) {
     var weatherIconEl = document.createElement("img");
     weatherIconEl.setAttribute("src", iconUrl);
     weatherIconEl.setAttribute("alt", weatherHolder[0].description);
-    weatherIconEl.classList.add('weather_icon');
+    weatherIconEl.classList.add('current_weather_icon');
     currentCityEl.appendChild(weatherIconEl);
 
 
