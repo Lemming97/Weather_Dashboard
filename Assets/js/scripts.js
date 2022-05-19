@@ -14,7 +14,6 @@ var currentNameCity = document.querySelector('#current-name');
 var currentCityDetailEL = document.querySelector('#cityDetail');
 var currentCity = document.querySelector('#current-city');
 
-
 var cityName = document.createElement('h2');
 cityName.textContent = "";
 

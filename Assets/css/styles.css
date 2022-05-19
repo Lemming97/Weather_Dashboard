@@ -54,8 +54,24 @@ li {
     height: 100vh;
 }
 
-#fiveDay .card {
+.card_body{
+    margin: 10px;
     border: 1px solid rgb(11, 11, 11)!important;
+    animation: name-of-animation 3s;
+    padding: 10px;    
+
+}
+@keyframes name-of-animation {
+    0%    { opacity: 0; }
+    100%  { opacity: 1; }
+  }
+
+#forecast_card {
+    display: flex;
+}
+
+#fiveDay .card {
+    /* border: 1px solid rgb(11, 11, 11)!important; */
     padding: 20px;
 }
 
@@ -67,7 +83,11 @@ li {
 
 /*icons*/
 .weather_icon{
-    width: 10%;
+    width: 40%;
+    height: auto;
+}
+.current_weather_icon {
+    width: 15%;
     height: auto;
 }
 
