@@ -3,12 +3,26 @@ var APIKey = "021b34237bbcc96949e3a99359d6328e";
 //current date
 const today = moment().format("L");
 let DateEL = document.querySelector("#current-date");
-DateEL.textContent = today;
+// DateEL.textContent = today;
+
 
 var cityInputEL = document.querySelector("#enterCity");
 var saveCityButton = document.querySelector("#searchBtn");
 var searchHistoryEl = document.getElementById("searchHistory");
+
+var currentNameCity = document.querySelector('#current-name');
 var currentCityDetailEL = document.querySelector('#cityDetail');
+var currentCity = document.querySelector('#current-city');
+
+
+var cityName = document.createElement('h2');
+cityName.textContent = "";
+
+var fiveDayCardEl = document.querySelector('#forecast_card');
+
+// currentCityDetailEL.textContent = '';
+
+
 
 var searchHistoryList =
     JSON.parse(window.localStorage.getItem("newCity")) || [];
@@ -57,37 +71,35 @@ searchHistoryEl.addEventListener('click', function (event) {
 // humidity, temperature, name, date, icon, wind speed, uv index
 var displayCurrentWeather = function (currentWeather) {
     console.log(currentWeather);
-    // currentCityDetailEL.textContent = '';
-    //target what you're appending, moving and when do you do that work? After the fetch 
-
-    var weather = currentWeather.weather;
-    console.log(weather[0].description);
+    currentCityDetailEL.textContent = '';
 
 
-    var currentCityEl = document.createElement('p');
-    currentCityEl.textContent = currentWeather.name;
-    currentCityDetailEL.appendChild(currentCityEl);
+
+    //name
+    // var currentNameCity = document.createElement('h2');
+    // currentNameCity.textContent = currentWeather.name;
+    // currentCityDetailEL.append(currentNameCity);
 
 
     //wind speed
     var windSpeedEl = document.createElement('p');
     windSpeedEl.textContent = "Wind Speed: " + currentWeather.wind_speed + " MPH";
-    currentCityEl.appendChild(windSpeedEl);
+    currentCityDetailEL.appendChild(windSpeedEl);
 
     //humidity 
     var humidityEL = document.createElement('p');
     humidityEL.textContent = "Humidity: " + currentWeather.humidity + " %";
-    currentCityEl.appendChild(humidityEL);
+    currentCityDetailEL.appendChild(humidityEL);
 
     //temp as to have tempHolder because it has a few things listed in it 
     var temp = document.createElement('p');
     temp.textContent = "Temperature: " + currentWeather.temp + " F";
-    currentCityEl.appendChild(temp);
+    currentCityDetailEL.appendChild(temp);
 
     //uvi index 
     var uvIndexEL = document.createElement('p');
     uvIndexEL.textContent = "UV index: " + currentWeather.uvi;
-    currentCityEl.appendChild(uvIndexEL);
+    currentCityDetailEL.appendChild(uvIndexEL);
 
 
     //weather obj
@@ -101,7 +113,7 @@ var displayCurrentWeather = function (currentWeather) {
     weatherIconEl.setAttribute("src", iconUrl);
     weatherIconEl.setAttribute("alt", weatherHolder[0].description);
     weatherIconEl.classList.add('current_weather_icon');
-    currentCityEl.appendChild(weatherIconEl);
+    currentCityDetailEL.appendChild(weatherIconEl);
 
 
 };
@@ -112,16 +124,15 @@ var displayForecast = function (dailyWeather) {
     console.log(dailyWeather)
     console.log(dailyWeather[0].weather);
 
-    var fiveDayCardEl = document.querySelector('#forecast_card');
+    // var fiveDayCardEl = document.querySelector('#forecast_card');
     fiveDayCardEl.innerHTML = '';
 
     for (j = 0; j < dailyWeather.length; j++) {
         //future date
-      
         var fiveDaysForwardEL = new moment().add(j + 1, 'day').format('L');
         let newDateEL = document.createElement('p');
         newDateEL.textContent = fiveDaysForwardEL;
- 
+
 
 
         //wind speed
@@ -202,13 +213,21 @@ var fetchCurrentCondition = function (city) {
             console.error(err);
         });
 
-    //formula
-    var currentCityEl = document.querySelector('#current-city');
-    var cityName = document.createElement('h2');
-    cityName.textContent = "";
+    //city name
+    // var currentCity = document.querySelector('#current-city');
+    // currentCity.textContent = "" + today;
+    // var cityName = document.createElement('h2');
+    // cityName.textContent = "";
+    //name
+    // var currentNameCity = document.createElement('h2');
+    // currentNameCity.textContent = currentWeather.name;
+    // currentCityDetailEL.append(currentNameCity);
     cityName.setAttribute("class", "city_name");
-    cityName.textContent = city;
-    currentCityEl.appendChild(cityName);
+    cityName.textContent = city + ' ' + '(' + today + ')';
+    // currentCity.appendChild(cityName);
+    currentNameCity.append(cityName);
+    // currentCity.appendChild(currentNameCity);
+
 
 
 
