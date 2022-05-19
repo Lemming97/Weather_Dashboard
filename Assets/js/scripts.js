@@ -65,16 +65,19 @@ var displaySearchHistory = function () {
 //user should be able to click on users from search history
 searchHistoryEl.addEventListener('click', function (event) {
     event.preventDefault();
+    console.log(event.target.dataset.id);
     fetchCurrentCondition(event.target.dataset.id);
+
 });
 
 //display current weather
 // humidity, temperature, name, date, icon, wind speed, uv index
-var displayCurrentWeather = function (currentWeather) {
+var displayCurrentWeather = function (currentWeather, city) {
     console.log(currentWeather);
+    let theCity = city;
     currentCityDetailEL.textContent = '';
     currentCity.textContent = theCity + ' ' + '(' + today + ')';
-
+    
 
     //name
     // var currentNameCity = document.createElement('h2');
@@ -217,7 +220,8 @@ var fetchCurrentCondition = function (city) {
             return res.json();
         })
         .then(function (weather) {
-            displayCurrentWeather(weather.current);
+            console.log(weather);
+            displayCurrentWeather(weather.current, city);
             displayForecast(weather.daily.slice(1, 6));
         })
         .catch(function (err) {
