@@ -15,8 +15,9 @@ var currentCityDetailEL = document.querySelector('#cityDetail');
 var currentCity = document.querySelector('#current-city');
 var uvCondition = document.querySelector('#uv-condition');
 
-var cityName = document.createElement('h2');
-cityName.textContent = "";
+// var cityName = document.createElement('h2');
+var cityName = document.getElementById('current-name');
+// cityName.textContent = "";
 
 var fiveDayCardEl = document.querySelector('#forecast_card');
 
@@ -72,6 +73,7 @@ searchHistoryEl.addEventListener('click', function (event) {
 var displayCurrentWeather = function (currentWeather) {
     console.log(currentWeather);
     currentCityDetailEL.textContent = '';
+    currentCity.textContent = city + ' ' + '(' + today + ')';
 
 
 
@@ -229,10 +231,11 @@ var fetchCurrentCondition = function (city) {
     // var currentNameCity = document.createElement('h2');
     // currentNameCity.textContent = currentWeather.name;
     // currentCityDetailEL.append(currentNameCity);
-    cityName.setAttribute("class", "city_name");
-    cityName.textContent = city + ' ' + '(' + today + ')';
+    // cityName.setAttribute("class", "city_name");
+    // cityName.textContent = city + ' ' + '(' + today + ')';
+    // currentCity.textContent = city + ' ' + '(' + today + ')';
     // currentCity.appendChild(cityName);
-    currentNameCity.append(cityName);
+    // currentNameCity.append(cityName);
     // currentCity.appendChild(currentNameCity);
 
 
