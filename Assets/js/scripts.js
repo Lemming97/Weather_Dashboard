@@ -13,6 +13,7 @@ var searchHistoryEl = document.getElementById("searchHistory");
 var currentNameCity = document.querySelector('#current-name');
 var currentCityDetailEL = document.querySelector('#cityDetail');
 var currentCity = document.querySelector('#current-city');
+var uvCondition = document.querySelector('#uv-condition');
 
 var cityName = document.createElement('h2');
 cityName.textContent = "";
@@ -99,6 +100,13 @@ var displayCurrentWeather = function (currentWeather) {
     var uvIndexEL = document.createElement('p');
     uvIndexEL.textContent = "UV index: " + currentWeather.uvi;
     currentCityDetailEL.appendChild(uvIndexEL);
+    if (uvIndexEL < 3) {
+        uvCondition.setAttribute('style', 'background-color: green');
+    } else if (uvIndexEL > 2 && uvIndexEL < 6) {
+        uvCondition.setAttribute('style', 'background-color: yellow; color: black');
+    } else {
+        uvCondition.setAttribute('style', 'background-color: red');
+    }
 
 
     //weather obj
