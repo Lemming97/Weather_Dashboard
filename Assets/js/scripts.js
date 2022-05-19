@@ -100,12 +100,12 @@ var displayCurrentWeather = function (currentWeather) {
     var uvIndexEL = document.createElement('p');
     uvIndexEL.textContent = "UV index: " + currentWeather.uvi;
     currentCityDetailEL.appendChild(uvIndexEL);
-    if (uvIndexEL < 3) {
-        uvCondition.setAttribute('style', 'background-color: green');
-    } else if (uvIndexEL > 2 && uvIndexEL < 6) {
-        uvCondition.setAttribute('style', 'background-color: yellow; color: black');
+    if (currentWeather.uvi < 3) {
+        uvIndexEL.setAttribute('style', 'background-color: green; color: white;');
+    } else if (currentWeather.uvi > 2 && currentWeather.uvi < 6) {
+        uvIndexEL.setAttribute('style', 'background-color: yellow; color: black');
     } else {
-        uvCondition.setAttribute('style', 'background-color: red');
+        uvIndexEL.setAttribute('style', 'background-color: red');
     }
 
 
