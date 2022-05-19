@@ -103,6 +103,7 @@ var displayCurrentWeather = function (currentWeather) {
     //uvi index 
     var uvIndexEL = document.createElement('p');
     uvIndexEL.textContent = "UV index: " + currentWeather.uvi;
+    uvIndexEL.classList.add('uv-condition');
     currentCityDetailEL.appendChild(uvIndexEL);
     if (currentWeather.uvi < 3) {
         uvIndexEL.setAttribute('style', 'background-color: green; color: white;');
