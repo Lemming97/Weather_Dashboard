@@ -60,6 +60,17 @@ h5 {
     box-shadow: 8px 8px 6px rgba(0, 0, 0, .5);
 }
 
+#searchHistory .list-group-item {
+    margin: 5px;
+    border: solid 1px #0242a9;
+    box-shadow: 4px 4px 2px rgba(0, 0, 0, .5);
+
+}
+
+#enterCity {
+    border: solid 1px #0242a9;
+}
+
 .card_body {
     margin: 10px;
     color: white;
@@ -98,10 +109,7 @@ h5 {
 #forecast_card {
     display: flex;
 }
-/* 
-.temp{
-    color: white;
-} */
+
 
 
 
@@ -118,12 +126,13 @@ h5 {
 
 /*icons*/
 .weather_icon {
-    width: 40%;
+    width: 45%;
     height: auto;
+  margin-left: 25px;
 }
 
 .current_weather_icon {
-    width: 15%;
+    width: 10%;
     height: auto;
 }
 
