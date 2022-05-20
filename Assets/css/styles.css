@@ -23,14 +23,6 @@ p {
 
 }
 
-/* h1,
-h2,
-h3,
-h4,
-h5 {
-    font-family: 'Raleway', sans-serif;
-} */
-
 h2,
 h3,
 h4,
@@ -48,7 +40,9 @@ h5 {
 }
 
 /*extra stylings*/
-
+#weatherContent {
+    width: 60%;
+}
 
 #searchResults {
     height: 100vh;
@@ -121,6 +115,7 @@ h5 {
 #searchHistory li {
     background-color: #97A6A4;
     color: #e7e7ed;
+    font-weight: bold;
 }
 
 
