@@ -34,7 +34,7 @@ THEN they are again presented with current and future conditions for that city.
 <li><a href="https://momentjs.com/">Moment.JS</a></li>
 <li><a href="https://fontawesome.com/">Font Awesome</a></li>
 <li><a href="https://getbootstrap.com/docs/5.1/getting-started/introduction/">Bootstrap</a></li>
-<li><a href="https://fontawesome.com/">Font Awesome</a></li>
+<li><a href="https://fonts.google.com/">Google Fonts</a></li>
 
 </ul>
 
