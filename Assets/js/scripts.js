@@ -190,7 +190,7 @@ function createWeatherDay(dateEl, windSpeedEl, weatherIconEl, humidityEL, tempEl
 
 
 //current city fetch
-var fetchCurrentCondition = function (city) {
+function fetchCurrentCondition(city) {
     console.log(city);
     var currentWeatherQueryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${APIKey}`;
     fetch(currentWeatherQueryURL)
