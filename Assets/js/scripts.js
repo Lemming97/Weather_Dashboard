@@ -4,27 +4,26 @@ var APIKey = "021b34237bbcc96949e3a99359d6328e";
 const today = moment().format("L");
 let DateEL = document.querySelector("#current-date");
 
-
+//input city elements 
 var cityInputEL = document.querySelector("#enterCity");
 var saveCityButton = document.querySelector("#searchBtn");
 var searchHistoryEl = document.getElementById("searchHistory");
-
+//various elements for city information 
 var currentNameCity = document.querySelector('#current-name');
 var currentCityDetailEL = document.querySelector('#cityDetail');
 var currentCity = document.querySelector('#current-city');
 var uvCondition = document.querySelector('#uv-condition');
-
-
 var fiveDayCardEl = document.querySelector('#forecast_card');
 
-
+// need to define extra city in order for city to pass through functions
 let theCity;
 
+//local storage 
 var searchHistoryList =
     JSON.parse(window.localStorage.getItem("newCity")) || [];
 
 //save city object
-var saveCity = function (city) {
+function saveCity(city) {
     //get value from input box
     console.log("saveCity function");
     theCity = city;
@@ -40,7 +39,7 @@ var saveCity = function (city) {
 
 
 //display search history of cities 
-var displaySearchHistory = function () {
+function displaySearchHistory() {
     console.log('displaySearchHistory');
 
     // display on page
@@ -68,12 +67,12 @@ searchHistoryEl.addEventListener('click', function (event) {
 
 //display current weather
 // humidity, temperature, name, date, icon, wind speed, uv index
-var displayCurrentWeather = function (currentWeather, city) {
+function displayCurrentWeather(currentWeather, city) {
     console.log(currentWeather);
     let theCity = city;
     currentCityDetailEL.textContent = '';
     currentCity.textContent = theCity + ' ' + '(' + today + ')';
-    
+
 
     //name
     var cityTitle = document.createElement('h2');
@@ -128,7 +127,7 @@ var displayCurrentWeather = function (currentWeather, city) {
 
 //display 5day forecast  history of cities
 //an icon representation of weather conditions, the temperature, the wind speed, and the humidity 
-var displayForecast = function (dailyWeather) {
+function displayForecast(dailyWeather) {
     console.log(dailyWeather)
     console.log(dailyWeather[0].weather);
     fiveDayCardEl.innerHTML = '';
@@ -165,7 +164,6 @@ var displayForecast = function (dailyWeather) {
         weatherIconEl.setAttribute("src", iconUrl);
         weatherIconEl.setAttribute("alt", weatherHolder[0].description);
         weatherIconEl.classList.add('weather_icon');
-
 
 
         //create a div
