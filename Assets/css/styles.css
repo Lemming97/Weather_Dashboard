@@ -1,9 +1,15 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 /*Body HTML Styling*/
 
 body {
-    font-family: 'Open Sans', sans-serif;
-    /* background-color: #97A6A4; */
+    font-family: 'BIZ UDPGothic', sans-serif;
 }
+
 
 h1 {
     font-size: 50px;
@@ -14,15 +20,16 @@ h1 {
 
 p {
     color: #161514;
+
 }
 
-h1,
+/* h1,
 h2,
 h3,
 h4,
 h5 {
     font-family: 'Raleway', sans-serif;
-}
+} */
 
 h2,
 h3,
@@ -35,39 +42,48 @@ h5 {
 
 /*nav bar styling*/
 .navbar {
-    height: 150px !important;
+    height: 100px;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(50, 185, 230, 1) 28%, rgba(2, 66, 169, 1) 100%);
 }
 
 /*extra stylings*/
 
-#cityDetail,
-#uvIndexColor,
-li {
-    color: #4D4F53 !important;
-}
-
-/* #weatherContent {
-    display: none;
-} */
-
-
-/* #searchResults,
-#cityDetail,
-.card {
-    background-color: #5A6C73!important;
-}  */
 
 #searchResults {
     height: 100vh;
 }
 
+#current-name {
+    border: 1px solid rgba(2,0,36,1);
+    border: solid 2px #0242a9;
+    box-shadow: 8px 8px 6px rgba(0, 0, 0, .5);
+}
+
 .card_body {
     margin: 10px;
-    border: 1px solid rgb(11, 11, 11) !important;
+    color: white;
+    font-weight: bold;
+    border: 1px solid rgba(2,0,36,1);
+    border: solid 2px #0242a9;
+    box-shadow: 8px 8px 6px rgba(0, 0, 0, .5);
     animation: name-of-animation 3s;
     padding: 10px;
-
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
 }
+.temp{
+    font-weight: 400;
+}
+
+
+.card {
+    border: none;
+}
+
+
 
 @keyframes name-of-animation {
     0% {
@@ -82,15 +98,21 @@ li {
 #forecast_card {
     display: flex;
 }
+/* 
+.temp{
+    color: white;
+} */
+
+
 
 #fiveDay .card {
-    /* border: 1px solid rgb(11, 11, 11)!important; */
     padding: 20px;
+
 }
 
 #searchHistory li {
     background-color: #97A6A4;
-    color: #e7e7ed !important;
+    color: #e7e7ed;
 }
 
 
@@ -105,18 +127,20 @@ li {
     height: auto;
 }
 
-/* #uv-condition {
-    padding: 3px;
-    box-sizing: border-box;
-    border-radius: 5px;
-    color: white;
-} */
+#cityDetail{
+    font-size: 15px;
+    font-weight: bold;
+}
 
-#cityDetail>p:nth-child(4) {
+.uv-condition {
+    font-size: 15px;
+    font-weight: bold;
     padding: 3px;
+    width: 15%;
     box-sizing: border-box;
     border-radius: 5px;
     color: white;
+    /* box-shadow: 2px 2px 6px rgba(0, 0, 0, .5); */
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
     border-top-left-radius: 4px;

@@ -94,7 +94,7 @@ var displayCurrentWeather = function (currentWeather, city) {
 
     //temp as to have tempHolder because it has a few things listed in it 
     var temp = document.createElement('p');
-    temp.textContent = "Temperature: " + currentWeather.temp + " F";
+    temp.textContent = "Temperature: " + currentWeather.temp + " °F";
     currentCityDetailEL.appendChild(temp);
 
     //uvi index 
@@ -155,7 +155,7 @@ var displayForecast = function (dailyWeather) {
         //temp as to have tempHolder because it has a few things listed in it 
         var temp = document.createElement('p');
         var tempHolder = dailyWeather[j].temp;
-        temp.textContent = "Temperature: " + tempHolder.day + " F";
+        temp.textContent = "Temperature: " + tempHolder.day + " °F";
 
         //weather obj
         var weatherHolder = dailyWeather[j].weather;

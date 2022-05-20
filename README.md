@@ -25,4 +25,18 @@ WHEN I click on a city in the search history
 THEN I am again presented with current and future conditions for that city
 ```
 
-<a href="https://openweathermap.org/api/one-call-api"> OpenWeather One Call AP</a>
+## Technology Used
+<ul>
+<li><a href="https://openweathermap.org/api/one-call-api"> OpenWeather One Call AP</a></li>
+<li><a href="https://momentjs.com/">Moment.JS</a></li>
+<li><a href="https://fontawesome.com/">Font Awesome</a></li>
+<li><a href="https://getbootstrap.com/docs/5.1/getting-started/introduction/">Bootstrap</a></li>
+<li><a href="https://fontawesome.com/">Font Awesome</a></li>
+
+</ul>
+
+
+### Screenshots
+
+<br><img src="./Assets/images/screen2.png" alt="screenshot of starting page" width="350"/>
+
