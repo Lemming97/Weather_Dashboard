@@ -38,5 +38,7 @@ THEN I am again presented with current and future conditions for that city
 
 ### Screenshots
 
+<br><img src="./Assets/images/screen1.png" alt="screenshot of starting page" width="350"/>
 <br><img src="./Assets/images/screen2.png" alt="screenshot of starting page" width="350"/>
+<br><img src="./Assets/images/screen3.png" alt="screenshot of starting page" width="350"/>
 

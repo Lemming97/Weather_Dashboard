@@ -3,7 +3,6 @@ var APIKey = "021b34237bbcc96949e3a99359d6328e";
 //current date
 const today = moment().format("L");
 let DateEL = document.querySelector("#current-date");
-// DateEL.textContent = today;
 
 
 var cityInputEL = document.querySelector("#enterCity");
@@ -132,8 +131,6 @@ var displayCurrentWeather = function (currentWeather, city) {
 var displayForecast = function (dailyWeather) {
     console.log(dailyWeather)
     console.log(dailyWeather[0].weather);
-
-    // var fiveDayCardEl = document.querySelector('#forecast_card');
     fiveDayCardEl.innerHTML = '';
 
     for (j = 0; j < dailyWeather.length; j++) {
